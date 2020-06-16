@@ -17,20 +17,56 @@ $faqs = [
     'question' => "Are my search queries sent to websites when I click on Google Search results?",
     'answer' => "In some cases, yes. When you click on a search result in Google Search, your web browser also may send the Internet address, or URL, of the search results page to the destination webpage as the Referrer URL. The URL of the search results page may sometimes contain the search query you entered. If you are using SSL Search (Google’s encrypted search functionality), under most circumstances, your search terms will not be sent as part of the URL in the Referrer URL. There are some exceptions to this behavior, such as if you are using some less popular browsers. More information on SSL Search can be found here. Search queries or information contained in the Referrer URL may be available via Google Analytics or an application programming interface (API). In addition, advertisers may receive information relating to the exact keywords that triggered an ad click.",
   ],
-];
+];?>
 
-foreach ($faqs as $faq) {/* For every answer, explode and separate every time I find a para marker ('--'). */
-  $q_pieces = explode('--',$faq['answer']);?>
-  <div>
-    <h2><?php echo $faq['question'] /* print question */ ?></h2>
-    <?php
-      foreach ($q_pieces as $q_piece) { /* print answer in single/multiple paras depending on nr */
-        ?><p><?php echo $q_piece; ?></p><?php
-      };
-    ?>
-  </div>
-  
-<?php
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;600&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div id="header-up">
+      <img id="brand-logo" src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_74x24dp.png" alt="google logo">
+      <span>Privacy & Terms</span>
+    </div>
+    <div id="header-low">
+      <div id="header-low-lx">
+      <ul>
+        <li>Overview</li>
+        <li>Privacy Policy</li>
+        <li>Terms of Service</li>
+        <li>Technologies</li>
+        <li>FAQ</li>
+      </ul>
+      </div>
+      <div id="header-low-rx">
+        <span>prova@gmail.com</span>
+      </div>
+    </div>
+  </header>
+  <main class="container">
+  <?php foreach ($faqs as $faq) {/* For every answer, explode and separate every time I find a para marker ('--'). */
+    $q_pieces = explode('--',$faq['answer']);?>
+    <div class="question">
+      <h2><?php echo $faq['question'] /* print question */ ?></h2>
+      <?php
+        foreach ($q_pieces as $q_piece) { /* print answer in single/multiple paras depending on nr */
+          ?><p><?php echo $q_piece; ?></p><?php
+        };
+      ?>
+    </div>
+    
+  <?php
+  }
 
-?>
+  ?>
+  </main>
+  <footer class="container"></footer>
+</body>
+</html>
+
